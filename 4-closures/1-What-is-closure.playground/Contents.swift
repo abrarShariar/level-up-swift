@@ -120,18 +120,28 @@ let reversedNames6 = names.sorted(by: >)
 //
 // > ["Ewa", "Alex", "Chris", "Barry", "Daniella"]
 
-func shortFirst(_ s1: String, _ s2: String) -> Bool {
-    return s1.count < s2.count
-}
+//func shortFirst(_ s1: String, _ s2: String) -> Bool {
+//    return s1.count < s2.count
+//}
 
-let shortWords = names.sorted(by: shortFirst)
+//let shortWords = names.sorted(by: shortFirst)
+
+let shortWords = names.sorted() { $0.count < $1.count }
+print(shortWords)
 
 // - Ready Player 1 🕹 Closure inlined
 //
 // Inline this method using any of the methods described above.
 //
 
-let shortWords2 = names.sorted(by: { $0.count < $1.count } )
+//let shortWords2 = names.sorted(by: { $0.count < $1.count } )
+//print(shortWords2)
+
+let sortByCount: (_ s1: String, _ s2: String) -> Bool {
+    return s1.count < s2.count
+}
+
+let shortWords2 = names.sorted(by: sortByCount)
 print(shortWords2)
 
 // Scroll to see answers below

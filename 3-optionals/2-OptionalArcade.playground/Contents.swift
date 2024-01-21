@@ -15,6 +15,10 @@ Unwrap the following Optional using the if let statement
 
 let firstname: String? = "Sam"
 
+if let name = firstname {
+    print("My name is \(name)")
+}
+
 /*
 🕹 Unwrap with guard
 
@@ -26,3 +30,9 @@ enum MyError: Error {
 }
 
 let lastname: String? = "Flynn"
+
+guard let name = lastname else {
+    throw MyError.invalidUsername
+}
+
+print("Unwrapped lastname successfully: \(name)")

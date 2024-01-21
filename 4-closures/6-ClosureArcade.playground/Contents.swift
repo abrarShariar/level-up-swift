@@ -16,6 +16,18 @@ Write a function named applyKTimes that takes an integer K and a closure and cal
 
 */
 
+func testMe() {
+    print("Testing from Closure")
+}
+
+func applyKTimes(K: Int, closure: () -> Void) {
+    for k in 0...K {
+        closure()
+    }
+}
+
+applyKTimes(K: 3, closure: testMe)
+
 
 /*
 
@@ -32,6 +44,18 @@ let numbers = [1, 2, 3, 4, 6, 8, 9, 3, 12, 11]
 */
 
 
+func filterMultipleOf3(N: Int) -> Bool {
+    return N % 3 == 0
+}
+
+let numbers = [1, 2, 3, 4, 6, 8, 9, 3, 12, 11]
+//let multiples = numbers.filter { filterMultipleOf3(N: $0) }
+
+let multiples = numbers.filter { $0 % 3 == 0 }
+
+print(multiples)
+
+
 
 /*
 🕹 Max
@@ -40,6 +64,9 @@ Find the largest number from numbers and then print it. Use reduce to solve this
 
 */
 
+numbers.reduce(0, { x, y in
+    return x > y ? x : y
+})
 
 
 /*
@@ -53,6 +80,12 @@ Join all the strings from strings into one using reduce. Add spaces in between s
 
 */
 
+var strings = ["We", "Heart", "Swift"]
+
+strings.reduce("") { x, y in
+    x + " " + y
+}
+
 
 /*
 
@@ -65,6 +98,17 @@ Find the sum of the squares of all the odd numbers from numbers and then print i
 
 */
 
+var numbers2 = [1, 2, 3, 4, 5, 6]
+
+let resultArr = numbers2.filter { n in
+    n % 2 == 1
+}.map { n in
+    n * n
+}.reduce(0) { x, y in
+    x + y
+}
+
+print(resultArr)
 
 
 /*
@@ -83,6 +127,8 @@ forEach(array) {
 // 4
 
 */
+
+
 
 
 
